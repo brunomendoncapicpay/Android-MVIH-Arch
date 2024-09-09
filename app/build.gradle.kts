@@ -17,7 +17,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
+
     buildTypes {
+        debug {
+            // nothing
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -42,7 +50,17 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.kotlin.coroutines)
+    implementation(libs.androidx.lifecycleRuntimeKtx)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.scope)
+    implementation(libs.koin.viewModel)
+
     testImplementation(libs.junit)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.kotlin.coroutinesTest)
+    androidTestImplementation(libs.kotlin.turbine)
 }
